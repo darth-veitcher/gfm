@@ -1,0 +1,62 @@
+[project]
+name = "gfm"
+dynamic = ["version", "readme"]
+description = "Git Flow Management in pure Python"
+authors = [
+    { name = "darth-veitcher", email = "1722315+darth-veitcher@users.noreply.github.com" }
+]
+dependencies = []
+requires-python = ">= 3.10"
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/darth-veitcher/gfm"
+Source = "https://github.com/darth-veitcher/gfm"
+Issues = "https://github.com/darth-veitcher/gfm/issues"
+Documentation = "https://github.com/darth-veitcher/gfm"
+
+[project.optional-dependencies]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.5.43",
+    "mkdocstrings[python]>=0.26.2",
+    "mkdocs-gen-files>=0.5.0",
+    "mkdocs-literate-nav>=0.6.1",
+    "mkdocs-section-index>=0.3.9",
+]
+
+[build-system]
+requires = ["hatchling", "hatch.vcs"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gfm"]
+
+[tool.hatch.version]
+source = "vcs"
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"
+
+[tool.pydocstyle]
+convention = "google"
+add-ignore = ["D105", "D107"]
+
+[tool.pytest.ini_options]
+addopts = "-v --doctest-modules --cov --cov-report=term-missing"
+testpaths = ["tests"]
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = ["*tests*", "*migrations*", ".venv/*", "*.env"]
+[tool.coverage.report]
+show_missing = true
+fail_under = 80

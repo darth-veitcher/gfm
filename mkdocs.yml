@@ -1,0 +1,42 @@
+site_name: GitFlowManager
+repo_url: https://github.com/darth-veitcher/gfm
+repo_name: darth-veitcher/gfm
+
+theme:
+  name: material
+  favicon: assets/code-commit-solid.svg
+  icon: 
+    logo: fontawesome/solid/code-commit
+    repo: fontawesome/brands/github
+  palette:
+    primary: deep orange
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+
+nav:
+  - Home: index.md
+  # rest of the navigation...
+  # defer to gen-files + literate-nav
+  - Code Reference: reference/
+  # rest of the navigation...
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - docs/scripts/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+
+markdown_extensions:
+- pymdownx.highlight:
+    use_pygments: true
+    pygments_lang_class: true
