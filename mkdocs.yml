@@ -1,9 +1,11 @@
 site_name: GitFlowManager
+site_url: 'https://github.com/darth-veitcher/gfm'
 repo_url: https://github.com/darth-veitcher/gfm
 repo_name: darth-veitcher/gfm
 
 theme:
   name: material
+  custom_dir: docs/overrides
   favicon: assets/code-commit-solid.svg
   icon: 
     logo: fontawesome/solid/code-commit
@@ -40,3 +42,7 @@ markdown_extensions:
 - pymdownx.highlight:
     use_pygments: true
     pygments_lang_class: true
+
+extra:
+  version:
+    provider: mike
