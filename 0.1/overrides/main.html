@@ -1,0 +1,9 @@
+<!--See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/#version-warning-->
+{% extends "base.html" %}
+
+{% block outdated %}
+  You're not viewing the latest version.
+  <a href="{{ '../' ~ base_url }}"> 
+    <strong>Click here to go to latest.</strong>
+  </a>
+{% endblock %}
